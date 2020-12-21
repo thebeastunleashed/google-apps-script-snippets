@@ -10,10 +10,12 @@ function run() {
 /**
  *
  * @param {GoogleAppsScript.Spreadsheet.Spreadsheet} book
- * @param {string} text
+ * @param {string} expression
+ * @param {string} replacement
+ * @param {callbackSheetValidator_}
  * @return {Array.<GoogleAppsScript.Spreadsheet.RangeList>}
  */
-function findAndReplace_(book, text) {
+function findAndReplace_(book, expr, repl, excl) {
   const textFinder = book.createTextFinder(text);
   const rangers = textFinder.findAll();
   const a1NotationsGroups = rangers.reduce((groups, range) => {
@@ -28,4 +30,11 @@ function findAndReplace_(book, text) {
       .getRangeList(a1NotationsGroups[sheetName])
       .clearContent()
   );
+}
+
+/**
+ *
+ */
+function callbackSheetValidator_() {
+  return true;
 }
