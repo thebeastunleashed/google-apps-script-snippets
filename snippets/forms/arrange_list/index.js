@@ -1,6 +1,6 @@
 // https://support.google.com/docs/thread/86184354
 /**
- * Copies a template and builds a new Form
+ * Arranges lists in Forms elements
  */
 function run() {
   const form = FormApp.openById('1JInxW42UFZPSADPPw-qU9qPMSXYwrchtjqAoQHO3-7I');
