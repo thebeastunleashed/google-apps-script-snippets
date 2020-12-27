@@ -1,3 +1,4 @@
+// https://support.google.com/docs/thread/86184354
 /**
  * Copies a template and builds a new Form
  */
@@ -9,7 +10,7 @@ function run() {
 /**
  *
  * @param {GoogleAppsScript.Forms.Item} item
- * @param {compareFunction_} [compareFunction=compareFunction_]
+ * @param {()} [compareFunction=compareFunction_]
  * @return {GoogleAppsScript.Forms.FormResponse}
  */
 function arrangeList(item, compareFunction) {
