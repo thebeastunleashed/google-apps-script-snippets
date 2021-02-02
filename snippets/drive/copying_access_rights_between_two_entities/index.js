@@ -22,8 +22,8 @@ function run() {
  * @return {void}
  */
 function copyingAccessRightsBetweenTwoEntities_(fromId, toId) {
-  const g = Drive.Files.get(fromId, { fields: 'permissions' });
-  const fields = g.permissions
+  const file = Drive.Files.get(fromId, { fields: 'permissions' });
+  const fields = file.permissions
     .map((permission) => {
       return {
         emailAddress: permission.emailAddress,
