@@ -71,11 +71,6 @@ function copyingAccessRightsBetweenTwoEntities_(fromId, toId) {
     (p, protectedRange) => {
       if (protectedRange.range && toDict[protectedRange.sheetTitle]) {
         protectedRange.range.sheetId = toDict[protectedRange.sheetTitle];
-        console.log(
-          protectedRange.sheetTitle,
-          protectedRange.range.sheetId,
-          toDict[protectedRange.sheetTitle]
-        );
         delete protectedRange.sheetTitle;
         p.push({ addProtectedRange: { protectedRange } });
       }
