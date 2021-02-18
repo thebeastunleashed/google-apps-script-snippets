@@ -12,9 +12,9 @@ categories: [
 
 ## Find and replace multiple pairs of occurrences
 
-This snippet shows how you can find and replace multiple data entries at once. For example, you want to replace the text "{{datetime}}" with the current time, and "{{signature}}" with the signature. You will need a settings object. See how it is written in code:
+This snippet shows how you can find and replace multiple data entries at once. For example, you want to replace the text "`{{datetime}}`" with the current time, and "`{{signature}}`" with the signature. You will need a settings object. See how it is written in code:
 
 {{< commentLink >}}
 
-{{< codeFromFile "snippets/docs/create_footnote" "index.js" "js" "" >}}
-{{< codeFromFile "snippets/docs/create_footnote" "appsscript.json" "json" "" >}}
+{{< codeFromFile "index.js" >}}
+{{< codeFromFile "appsscript.json" >}}
