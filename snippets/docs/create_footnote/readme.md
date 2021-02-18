@@ -16,5 +16,5 @@ This snippet demonstrates the ability to create new footnotes by referencing the
 
 {{< commentLink >}}
 
-{{< codeFromFile "snippets/docs/create_footnote" "index.js" "js" "" >}}
-{{< codeFromFile "snippets/docs/create_footnote" "appsscript.json" "json" "" >}}
+{{< codeFromFile "index.js" >}}
+{{< codeFromFile "appsscript.json" >}}
