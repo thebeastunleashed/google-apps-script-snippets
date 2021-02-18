@@ -1,10 +1,9 @@
 ---
 title: "Create a footnote"
 date: "2021-02-17"
-description: "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
+description: "Shows how to create new footnotes"
 tags: [
-    "docs",
-    "Google Docs API",
+    "Docs advanced service",
 ]
 categories: [
   "snippets"
