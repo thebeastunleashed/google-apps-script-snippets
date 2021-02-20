@@ -15,5 +15,5 @@
   "globals": {
     "Sheets": true
   },
-  "parserOptions": { "ecmaVersion": 6 }
+  "parserOptions": { "ecmaVersion": 7 }
 }
