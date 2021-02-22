@@ -1,9 +1,19 @@
 ---
-title: open_url_in_browser
-status: init
-url: snippets/common_ui/open_url_in_browser
+title: 'Open an url in browser'
+date: '2021-02-21'
+description: ''
+tags: []
+categories: ['snippets']
 ---
 
-## create_file_and_open_in_browser
+## Open an url in browser
 
-![open_url_in_browser](./screenrecord.gif 'Screenrecord')
+This snippet shows how to open a link using Apps Script in a browser. As a particular example it shows how to get/create a file and open it in browser.
+This may not always work as browsers protect tabs from opening spontaneously.
+
+- {{< externalLink >}}
+- {{< commentLink >}}
+
+{{< codeFromFile "index.js" >}}
+{{< codeFromFile "app.html" >}}
+{{< codeFromFile "appsscript.json" >}}
