@@ -13,6 +13,7 @@ This may not always work as browsers protect tabs from opening spontaneously.
 
 - {{< externalLink >}}
 - {{< commentLink >}}
+- {{< scrvizLink >}}
 
 {{< codeFromFile "index.js" >}}
 {{< codeFromFile "app.html" >}}

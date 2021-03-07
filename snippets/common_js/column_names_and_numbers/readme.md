@@ -30,10 +30,11 @@ There are several **_base 26_** types. Apps Scripts works with Sheets. Therefore
 
 The code below shows how you can get **_base 10_** from **_base 26_** and vice versa. In other words it helps you know the column number by letters or column letters by number.
 
-### Snippets
+### Snippet
 
 - {{< externalLink >}}
 - {{< commentLink >}}
+- {{< scrvizLink >}}
 
 {{< codeFromFile "index.js" >}}
 

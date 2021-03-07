@@ -12,6 +12,7 @@ The snippet processes the list of sheets of the spreadsheet. It protects the she
 
 - {{< externalLink >}}
 - {{< commentLink >}}
+- {{< scrvizLink >}}
 
 {{< codeFromFile "index.js" >}}
 {{< codeFromFile "appsscript.json" >}}
