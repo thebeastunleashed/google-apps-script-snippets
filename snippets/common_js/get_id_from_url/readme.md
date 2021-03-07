@@ -14,6 +14,7 @@ categories: ['snippets']
 
 - {{< externalLink >}}
 - {{< commentLink >}}
+- {{< scrvizLink >}}
 
 {{< codeFromFile "index.js" >}}
 

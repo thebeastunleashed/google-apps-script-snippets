@@ -12,6 +12,7 @@ This snippet demonstrates the ability to create new footnotes by referencing the
 
 - {{< externalLink >}}
 - {{< commentLink >}}
+- {{< scrvizLink >}}
 
 {{< codeFromFile "index.js" >}}
 {{< codeFromFile "appsscript.json" >}}
