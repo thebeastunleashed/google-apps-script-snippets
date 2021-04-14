@@ -8,9 +8,8 @@ function unlinkUrls_(range = SpreadsheetApp.getActiveRange()) {
   return range.setRichTextValues(
     range.getRichTextValues().map((rowRichTextValues) =>
       rowRichTextValues.map((richTextValue) => {
-        let copy;
         if (richTextValue.getRuns().some((ruin) => ruin.getLinkUrl())) {
-          copy = richTextValue.copy();
+          const copy = richTextValue.copy();
           copy.setLinkUrl(undefined);
           return copy.build();
         }
