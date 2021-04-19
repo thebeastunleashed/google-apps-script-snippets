@@ -1,4 +1,5 @@
 # Google Apps Script snippets
+
 This is a list of code fragments for the copy / paste tool on yours keyboard. I still don't know what to do about this. It would be great if you had an idea.
 
 <!-- TOC depthFrom:2 -->
@@ -23,7 +24,7 @@ This is a list of code fragments for the copy / paste tool on yours keyboard. I 
     - [Insert values starting with row/column](#insert-values-starting-with-rowcolumn)
     - [copyTo](#copyto)
 - [Groups](#groups)
-    - [Check email in group](#check-email-in-group)
+  - [Check email in group](#check-email-in-group)
 - [Utilities](#utilities)
   - [Blob](#blob)
     - [Create a new Blob object from a string, content type, name and specific charsets](#create-a-new-blob-object-from-a-string-content-type-name-and-specific-charsets)
@@ -44,59 +45,68 @@ This is a list of code fragments for the copy / paste tool on yours keyboard. I 
 ### Logger
 
 #### Pretty JSON in Logger
+
 _example [/issues/3](../../issues/3)_
+
 ```js
-function ll_(){
+function ll_() {
   var args = [];
   for (var i = 0; i < arguments.length; i++) {
-    args.push(typeof arguments[i] === 'object' ? ('' + JSON.stringify(arguments[i], null, '  ')) : ('' + arguments[i]));
+    args.push(
+      typeof arguments[i] === 'object'
+        ? '' + JSON.stringify(arguments[i], null, '  ')
+        : '' + arguments[i]
+    );
   }
-  if(!/%s/.test(args[0])){
+  if (!/%s/.test(args[0])) {
     args.unshift(new Array(args.length).join('\n%s'));
   }
   Logger.log.apply(Logger, args);
 }
 ```
+
 ## DriveApp
+
 ### Basic file manipulations
+
 #### Create a spreadsheet in the specific folder
+
 ```js
-function example(){
+function example() {
   createSpreadsheet('asdasd', '0Bztea6vSatozM2NiWGVGRzNvbTQ');
   // Defaults
   // createSpreadsheet('asdasdfasdf');
 }
 
-function createSpreadsheetRC(name, rows, columns, folder, add){
-  
+function createSpreadsheetRC(name, rows, columns, folder, add) {
   var args = [name];
-  if(rows || columns){
+  if (rows || columns) {
     args.push(rows || 1);
     args.push(columns || 1);
   }
-  
-  
+
   var spreadsheet = SpreadsheetApp.create.apply(SpreadsheetApp, args);
-  
-  if(folder){
-    folder = typeof folder === 'object' ? folder : DriveApp.getFolderById(folder);
+
+  if (folder) {
+    folder =
+      typeof folder === 'object' ? folder : DriveApp.getFolderById(folder);
     add = !!add;
-    
+
     var child = DriveApp.getFileById(spreadsheet.getId());
-    
+
     folder.addFile(child);
-    if(!add){
+    if (!add) {
       DriveApp.getRootFolder().removeFile(child);
     }
   }
   return spreadsheet;
 }
 
-function createSpreadsheet(name, folder, add){
+function createSpreadsheet(name, folder, add) {
   return createSpreadsheetRC(name, undefined, undefined, folder, add);
 }
-
 ```
+
 ## Spreadsheets
 
 ### Common snippets for spreadsheets
@@ -105,13 +115,14 @@ function createSpreadsheet(name, folder, add){
 
 ```js
 // Rounds the date to days. Usefull for timestamps
-function roundToDay_(date, offsetOfDays){
+function roundToDay_(date, offsetOfDays) {
   offsetOfDays = offsetOfDays * 24 * 60 * 60 * 1000 || 0;
   var res_ = new Date(date.valueOf() + offsetOfDays);
   res_.setHours(0, 0, 0, 0);
   return res_;
 }
 ```
+
 ### Sheets
 
 #### Get a sheet by index
@@ -128,7 +139,7 @@ var sheet = spreadsheet.getSheets()[index];
 
 ```js
 //Always returns a sheet
-function getSheetByName(spreadsheet, sheetName){
+function getSheetByName(spreadsheet, sheetName) {
   var sheet = spreadsheet.getSheetByName(sheetName);
   return sheet || spreadsheet.insertSheet(sheetName);
 }
@@ -137,12 +148,12 @@ function getSheetByName(spreadsheet, sheetName){
 #### Get sheet by gid
 
 ```js
-function getSheetByGid(spreadsheet, gid){
+function getSheetByGid(spreadsheet, gid) {
   gid = +gid || 0;
   var res_ = undefined;
   var sheets_ = spreadsheet.getSheets();
-  for(var i = sheets_.length; i--; ){
-    if(sheets_[i].getSheetId() === gid){
+  for (var i = sheets_.length; i--; ) {
+    if (sheets_[i].getSheetId() === gid) {
       res_ = sheets_[i];
       break;
     }
@@ -152,33 +163,40 @@ function getSheetByGid(spreadsheet, gid){
 ```
 
 #### Get sheets associated with a Form
+
 ```js
 /*
 @denial Gets not associated
 */
-function getAssociatedWithForm_(sheets, denial){
+function getAssociatedWithForm_(sheets, denial) {
   denial = !denial;
-  return sheets.filter(function(sheet){
-    return !!sheet.getFormUrl() === this.denial;
-  }, {denial: denial});
+  return sheets.filter(
+    function (sheet) {
+      return !!sheet.getFormUrl() === this.denial;
+    },
+    { denial: denial }
+  );
 }
 ```
 
 ### Values and data
 
 #### Append values to a sheet
-like [appendRow(rowContents)](https://developers.google.com/apps-script/reference/spreadsheet/sheet#appendRow(Object))
+
+like [appendRow(rowContents)](<https://developers.google.com/apps-script/reference/spreadsheet/sheet#appendRow(Object)>)
 
 ```js
 // Appends values to sheet
-function appendValues(sheet, values, colOffset){
+function appendValues(sheet, values, colOffset) {
   colOffset = colOffset || 1;
-  return sheet.getRange(
+  return sheet
+    .getRange(
       sheet.getLastRow() + 1,
       colOffset,
-      values.length, 
+      values.length,
       values[0].length
-    ).setValues(values);
+    )
+    .setValues(values);
 }
 ```
 
@@ -186,7 +204,7 @@ function appendValues(sheet, values, colOffset){
 
 ```js
 // Can be expanded by other methods
-function setValues(sheet, values, row, col){
+function setValues(sheet, values, row, col) {
   row = row || 1;
   col = col || 1;
   sheet.getRange(row, col, values.length, values[0].length).setValues(values);
@@ -194,28 +212,37 @@ function setValues(sheet, values, row, col){
 ```
 
 #### copyTo
+
 ```js
-function fn(){
-  var source = SpreadsheetApp.openById("...").getRange("A1");
-  var destination = SpreadsheetApp.openById("...").getRange("A1");
+function fn() {
+  var source = SpreadsheetApp.openById('...').getRange('A1');
+  var destination = SpreadsheetApp.openById('...').getRange('A1');
   copyTo(source, destination);
 }
 /*
 To avoid 'Target range and source range must be on the same spreadsheet'
 */
-function copyTo(source, destination){
+function copyTo(source, destination) {
   destination.setValues(source.getValues());
 }
 ```
 
 ## Groups
+
 #### Check email in group
+
 ```js
 function isInGroup_(userEmail, groupEmail, level) {
   level = level || 2;
   try {
     var group = GroupsApp.getGroupByEmail(groupEmail);
-    return [GroupsApp.Role.OWNER, GroupsApp.Role.MANAGER, GroupsApp.Role.MEMBER].indexOf(group.getRole(currentUser)) === level;
+    return (
+      [
+        GroupsApp.Role.OWNER,
+        GroupsApp.Role.MANAGER,
+        GroupsApp.Role.MEMBER,
+      ].indexOf(group.getRole(currentUser)) === level
+    );
   } catch (err) {
     return false;
   }
@@ -227,41 +254,47 @@ function isInGroup_(userEmail, groupEmail, level) {
 ### Blob
 
 #### Create a new Blob object from a string, content type, name and specific charsets
+
 _Example [/issue/9](../../issues/9)_
 
 ```js
-function newBlobWithCharset(data, contentType, name, charset){
+function newBlobWithCharset(data, contentType, name, charset) {
   return Utilities.newBlob('')
-  .setDataFromString(data, charset)
-  .setName(name)
-  .setContentType(contentType);
+    .setDataFromString(data, charset)
+    .setName(name)
+    .setContentType(contentType);
 }
 ```
 
 ### DigestAlgorithm
 
 #### Compute a hash string
+
 _Example [/issue/8](../../issues/8)_
 
 ```js
 /**
-* Compute a hash string using the specified digest algorithm on the specified value.
-* @param {String} value The specified value.
-* @param {String} digestAlgorithm The name of Enum DigestAlgorithm: MD2, MD5, SHA_1, SHA_256, SHA_384, SHA_512
-* @param {String} charset The name of Enum Charset: US_ASCII, UTF_8.
-* @return {String} The hash of value.
-*/
+ * Compute a hash string using the specified digest algorithm on the specified value.
+ * @param {String} value The specified value.
+ * @param {String} digestAlgorithm The name of Enum DigestAlgorithm: MD2, MD5, SHA_1, SHA_256, SHA_384, SHA_512
+ * @param {String} charset The name of Enum Charset: US_ASCII, UTF_8.
+ * @return {String} The hash of value.
+ */
 
 function hash_(str, digestAlgorithm, charset) {
   charset = charset || Utilities.Charset.UTF_8;
   digestAlgorithm = digestAlgorithm || 'MD5';
-  var digest = Utilities.computeDigest(Utilities.DigestAlgorithm[digestAlgorithm], str, charset);
+  var digest = Utilities.computeDigest(
+    Utilities.DigestAlgorithm[digestAlgorithm],
+    str,
+    charset
+  );
   var __ = '';
   for (i = 0; i < digest.length; i++) {
     //var byte = digest[i];
     //if (byte < 0) byte += 256;
     //var bStr = byte.toString(16);
-    var bStr = (digest[i] < 0 ? digest[i] += 256 : digest[i]).toString(16);
+    var bStr = (digest[i] < 0 ? (digest[i] += 256) : digest[i]).toString(16);
     if (bStr.length == 1) bStr = '0' + bStr;
     __ += bStr;
   }
@@ -270,60 +303,67 @@ function hash_(str, digestAlgorithm, charset) {
 ```
 
 ## HtmlService
+
 ### Web application
+
 #### Responsive meta tag for the webapp
+
 https://plus.google.com/u/0/+MarcoColomboMow/posts/GXgRCh98HTu
+
 ```js
-  HtmlService.createHtmlOutput('Hello world')
+HtmlService.createHtmlOutput('Hello world')
   //Responsive
-  .addMetaTag('viewport', 'width=device-width, initial-scale=1')
+  .addMetaTag('viewport', 'width=device-width, initial-scale=1');
 ```
+
 #### Google Site Verification for the webapp
+
 ```js
-  HtmlService.createHtmlOutput('Hello world')
+HtmlService.createHtmlOutput('Hello world')
   //WEBMASTER TOOLS
-  .addMetaTag('google-site-verification', '<METATAG_FROM_WEBMASTER_TOOLS>')
+  .addMetaTag('google-site-verification', '<METATAG_FROM_WEBMASTER_TOOLS>');
 ```
+
 #### Hide Google security warnings
 
-*On an external host*
+_On an external host_
 
 ```html
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <title></title>
+  </head>
 
-<head>
-  <title></title>
-</head>
-
-<body>
-  <iframe src="https://script.google.com/macros/s/ABCD1234/exec"></iframe>
-</body>
-
+  <body>
+    <iframe src="https://script.google.com/macros/s/ABCD1234/exec"></iframe>
+  </body>
 </html>
 ```
 
-*The webapp*
+_The webapp_
+
 ```js
 //This is the magic header that allows this to be done with no particular Google security warnings
 function doGet(e) {
-  var hs = HtmlService
-  .createTemplateFromFile('html-template')
-  .evaluate()
-  .setTitle('My App')
-  .setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
+  var hs = HtmlService.createTemplateFromFile('html-template')
+    .evaluate()
+    .setTitle('My App')
+    .setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
   return hs;
 }
 ```
+
 #### Processing of POST data
+
 ```js
 function doPost(e) {
   if (!e || !e.postData) {
     e = {};
     e.postData = {
-      getDataAsString: function() {
-        return {}
-      }
+      getDataAsString: function () {
+        return {};
+      },
     };
   }
   try {
@@ -333,6 +373,7 @@ function doPost(e) {
   }
 }
 ```
+
 ## License
 
 [![CC0](http://mirrors.creativecommons.org/presskit/buttons/88x31/svg/cc-zero.svg)](https://creativecommons.org/publicdomain/zero/1.0/)
