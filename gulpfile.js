@@ -53,13 +53,9 @@ gulp.task('br', function (done) {
 gulp.task('clasp', function (cb) {
   cb = cb || console.log;
   // const cmd = spawn('./node_modules/.bin/clasp', ['push'], {
-  const cmd = spawn(
-    '/home/user/.nvm/versions/node/v14.15.3/bin/clasp',
-    ['push'],
-    {
-      stdio: 'inherit',
-    }
-  );
+  const cmd = spawn('npx', ['clasp', 'push'], {
+    stdio: 'inherit',
+  });
   cmd.on('close', function (code) {
     console.log('clasp exited with code ' + code);
     cb(code);
