@@ -1,6 +1,17 @@
 # Google Apps Script Snippets
 
-This is a diverse collection of code snippets that I have ever seen and made.
+The website [Google Apps Script snippets ᕦʕ •ᴥ•ʔᕤ](https://google-apps-script-snippets.contributor.pw/)
 
-- [Docs](https://google-apps-script-snippets.contributor.pw) **English translation required**
-- [Документация](https://google-apps-script-snippets.contributor.pw/ru)
+## How to build
+
+Clone the repo.
+
+Don't forget `$> npm init`.
+
+Override the [settings](./settings) to your `.clasp.json`.
+
+Push the snippet `sheets/export-import-to-csv` to the cloud:
+
+```sh
+$>  S=./snippets/sheets/export-import-to-csv && npm run dsw $S
+```
