@@ -10,8 +10,6 @@ categories: ['snippets']
 
 ## Sheets datetime converter
 
-![Snippet of Sheets datetime converter](./screenshot.png)
-
 ### Snippet
 
 - {{< externalLink >}}

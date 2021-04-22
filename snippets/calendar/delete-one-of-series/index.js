@@ -1,6 +1,6 @@
 /**
  *
- * Deletes only specific events from a series that match by date and search term
+ * Deletes only specific events from series that match by date and search term
  *
  * @param {GoogleAppsScript.Calendar.Calendar} calendar
  * @param {Date} start
