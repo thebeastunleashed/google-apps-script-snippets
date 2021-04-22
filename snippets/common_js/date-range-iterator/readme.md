@@ -4,7 +4,7 @@ date: '2021-04-19'
 description: 'Gets an iterator of dates for the specified range.'
 tags: ['js', 'common']
 categories: ['snippets']
-images: ['./snippets/sheets/unlink_urls/screenrecord.gif']
+images: ['./snippets/sheets/date-range-iterator/screenshot.png']
 ---
 
 {{< toc >}}
