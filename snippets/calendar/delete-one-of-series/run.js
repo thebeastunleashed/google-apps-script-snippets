@@ -14,5 +14,5 @@ function run() {
   const end = new Date(now);
   end.setHours(23, 59, 59, 999);
   end.setDate(end.getDate() + 2);
-  console.log(deleteEventFromSeries(calendar, start, end, 'event'));
+  console.log(deleteEventFromSeries(calendar.getId(), start, end, 'event'));
 }
