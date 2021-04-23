@@ -4,6 +4,7 @@ date: '2021-04-22'
 description: ' Checking and deleting only specific events via CalendarApp'
 tags: ['calendar']
 categories: ['snippets']
+images: ['./snippets/calendar/delete-one-of-series/screenshot.png']
 ---
 
 {{< toc >}}
@@ -26,4 +27,4 @@ categories: ['snippets']
 
 ### Manifest
 
-{{< codeFromFile "appsscript.json" >}
+{{< codeFromFile "appsscript.json" >}}
