@@ -11,6 +11,8 @@ images: ['./snippets/calendar/delete-one-of-series/screenshot.png']
 
 ## Delete specific events from Google Calendar series
 
+![Snippet of Delete specific events from Google Calendar series](./screenshot.png)
+
 **Note:** For bulk operations please use Google Calendar API Batch Requests. _See:_ [Sending Batch Requests  |  Calendar API  |  Google Developers](https://developers.google.com/calendar/batch), [tanaikech/BatchRequest: This is a library for running Batch Requests using Google Apps Script (GAS).](https://github.com/tanaikech/BatchRequest)
 
 ### Snippet
