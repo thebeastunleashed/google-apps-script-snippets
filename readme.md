@@ -306,16 +306,6 @@ function hash_(str, digestAlgorithm, charset) {
 
 ### Web application
 
-#### Responsive meta tag for the webapp
-
-https://plus.google.com/u/0/+MarcoColomboMow/posts/GXgRCh98HTu
-
-```js
-HtmlService.createHtmlOutput('Hello world')
-  //Responsive
-  .addMetaTag('viewport', 'width=device-width, initial-scale=1');
-```
-
 #### Google Site Verification for the webapp
 
 ```js
