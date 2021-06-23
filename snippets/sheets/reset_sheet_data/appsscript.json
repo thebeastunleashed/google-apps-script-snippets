@@ -3,5 +3,6 @@
   "dependencies": {
     "libraries": []
   },
-  "exceptionLogging": "STACKDRIVER"
+  "exceptionLogging": "STACKDRIVER",
+  "runtimeVersion": "V8"
 }

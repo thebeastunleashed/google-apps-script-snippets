@@ -1,13 +1,49 @@
 ---
-title: Reset sheets
-status: init
-url: snippets/spreadsheet_reset-sheets
+title: 'Reset a sheet'
+date: '2021-06-23'
+description: 'Resets the sheet/sheets data to its original state. Cleans the sheet(s)'
+tags: ['sheets']
+categories: ['snippets']
+images: ['./snippets/sheets/reset_sheet_data/screenshot.png']
 ---
 
-## Reset sheets
+## Resets the sheet/sheets data to its original state. Cleans the sheet(s)
 
-Based on [I need a script to clear certain cells in sheets when a button is pressed](https://support.google.com/docs/thread/5809954?msgid=5809954)
+{{< toc >}}
 
-[Sample sheet](https://docs.google.com/spreadsheets/d/1g8cCxofljFhq_J72sT5tvZZbeMTD5Wc8akHeXetCeDw/edit?usp=sharing)
+<video controls width="100%" height="350px" autoplay="true" loop="true">
+    <source src="./screenrecord.mp4"  type="video/mp4">
+    Sorry, your browser doesn't support embedded videos.
+</video>
 
-![Google Apps Script reset a sheet](https://raw.githubusercontent.com/contributorpw/google-apps-script-snippets/master/snippets/spreadsheet_reset-sheets/screenrecord.gif)
+### Snippet
+
+- {{< externalLink >}}
+- {{< commentLink >}}
+- {{< scrvizLink >}}
+
+{{< codeFromFile "index.js" >}}
+
+### Run it
+
+Copy the full sample of the Spreadsheet [Reset sheet data](https://docs.google.com/spreadsheets/d/1g8cCxofljFhq_J72sT5tvZZbeMTD5Wc8akHeXetCeDw/edit?usp=sharing).
+
+You have to decide how you want to reset your sheet. This is expressed in individual user actions.
+
+{{< codeFromFile "userActions.js" >}}
+
+### Additional
+
+{{< codeFromFile "triggerActions.js" >}}
+
+#### Make copy before reset
+
+<video controls width="100%" height="350px" autoplay="true" loop="true">
+    <source src="./screenrecord2.mp4"  type="video/mp4">
+    Sorry, your browser doesn't support embedded videos.
+</video>
+
+
+{{< codeFromFile "makeCopyBeforeReset.js" >}}
+
+{{< clipboard >}}

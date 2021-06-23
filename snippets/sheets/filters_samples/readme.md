@@ -1,3 +1,3 @@
 # Filters samples
 
-![alt](./000.png)
+![alt](000.png)

@@ -1,15 +1,13 @@
 /* global resetByRangesList_ */
 
 /**
- *
+ * The user action
  */
 function userActionMakeCopyBeforeReset() {
   // Don't copy this part. It's just for sample === START
   const __checkvar__ = 'Make copy before reset';
   if (SpreadsheetApp.getActiveSheet().getName() !== __checkvar__) {
-    SpreadsheetApp.getActive()
-      .getSheetByName(__checkvar__)
-      .activate();
+    SpreadsheetApp.getActive().getSheetByName(__checkvar__).activate();
     SpreadsheetApp.getUi().alert(
       'OK. The original sheet will activated. Please, fill data and try again!'
     );
