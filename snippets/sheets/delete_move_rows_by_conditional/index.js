@@ -7,54 +7,6 @@
  */
 
 /**
- * If you wish implement this for EDIT
- */
-// function onEdit() {
-//   run2();
-// }
-
-/**
- * Runs the snippet.
- * Removes rows by condition 'B:B=10'.
- * @ignore
- */
-function run1() {
-  var sheet = SpreadsheetApp.getActiveSheet();
-  deleteRowsByConditional_(sheet, function(values, i) {
-    return values[i][1] === 10;
-  });
-}
-
-/**
- * https://toster.ru/q/690651
- * Runs the snippet.
- * Removes rows by condition '(A:A<>"")*(B:B<>"")*(D:D<>"")*(F:F<>"")'. Appends deleted rows to the 'Archive' sheet.
- *
- */
-function run2() {
-  /* Remove dash */
-  var sheet = SpreadsheetApp.getActiveSheet();
-  if (sheet.getName() === 'Archive') return;
-  var archive = SpreadsheetApp.getActive().getSheetByName('Archive');
-
-  var action = function(values, i, i2) {
-    var data = values.slice(i, i + i2);
-    archive
-      .getRange(archive.getLastRow() + 1, 1, data.length, data[0].length)
-      .setValues(data);
-  };
-
-  var condition = function(values, i) {
-    var row = values[i];
-    return (
-      i > 0 && row[0] !== '' && row[1] !== '' && row[3] !== '' && row[5] !== ''
-    );
-  };
-
-  deleteRowsByConditional_(sheet, condition, action);
-}
-
-/**
  * Removes rows from a sheet according to the condition
  *
  * @function
@@ -76,14 +28,14 @@ function deleteRowsByConditional_(sheet, condition, action) {
     .getDataRange()
     .getValues()
     .forEach(
-      function(_, i, arr) {
-        var j = arr.length - i - 1;
+      (_, i, arr) => {
+        const j = arr.length - i - 1;
         if (this.condition.apply(null, [arr, j])) {
           this.isContinue++;
           if (j > 0) return;
         }
         if (this.isContinue > 0) {
-          var prevPos = j + 1;
+          const prevPos = j + 1;
           if (action) action(arr, prevPos, this.isContinue);
           this.sheet.deleteRows(prevPos + 1, this.isContinue);
           this.isContinue = 0;
