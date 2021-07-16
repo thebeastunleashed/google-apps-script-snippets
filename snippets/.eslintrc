@@ -10,7 +10,8 @@
     "no-unused-vars": ["error", { "varsIgnorePattern": "[on|run]*" }],
     "require-jsdoc": "error",
     "prefer-rest-params": "off",
-    "valid-jsdoc": "off"
+    "valid-jsdoc": "off",
+    "no-console": "warn"
   },
   "globals": {
     "Sheets": true
