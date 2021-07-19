@@ -1,1 +1,0 @@
-# lodasgs_sample
