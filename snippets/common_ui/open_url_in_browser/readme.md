@@ -18,3 +18,5 @@ This may not always work as browsers protect tabs from opening spontaneously.
 {{< codeFromFile "index.js" >}}
 {{< codeFromFile "app.html" >}}
 {{< codeFromFile "appsscript.json" >}}
+
+{{< clipboard >}}
