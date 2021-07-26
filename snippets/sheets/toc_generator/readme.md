@@ -24,3 +24,5 @@ images: ['./snippets/sheets/toc_generator/screenrecord.gif']
 ### Run it
 
 {{< codeFromFile "run.js" >}}
+
+{{< clipboard >}}
