@@ -41,7 +41,8 @@
     "bootstrap": "^4.5.3",
     "jaro-winkler": "^0.2.8",
     "jquery": "^3.5.1",
-    "jsonata": "^1.8.4"
+    "jsonata": "^1.8.4",
+    "xml-js": "^1.6.11"
   },
   "devSettings": {
     "watchDelay": 1500
