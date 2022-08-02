@@ -5,7 +5,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "ds": "gulp develop --path",
-    "dsw": "gulp watch --path"
+    "dsw": "gulp watch --path",
+    "pull": "cp .clasp.json.pull .clasp.json && clasp pull"
   },
   "repository": {
     "type": "git",
